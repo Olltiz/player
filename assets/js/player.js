@@ -9,7 +9,8 @@ window.addEventListener("message", async e => {
     document.getElementsByTagName('head')[0].appendChild(meta);
   }
 
-  console.log('[CR Premium] Player encontrado!')
+  console.log('#############################################');
+  console.log('[CR Premium] Player encontrado!');
 
   // Variáveis principais
   const promises=[], request = [];
@@ -124,11 +125,22 @@ window.addEventListener("message", async e => {
   Promise.all(promises).then(() => {
     for (let idx of [1, 0, 2, 3, 4])
       sources.push({ file: video_m3u8_array[idx], label: r[idx] + (idx<2 ? '<sup><sup>HD</sup></sup>' : '')});
+
+      console.log("##############################################################################################");
+      console.log(video_m3u8_array);
+      console.log("##############################################################################################");
+
     startPlayer();
   });
 
   const thumbs = up_next ? video_config_media['metadata']['up_next']['thumbnails'] : [];
   function startPlayer() {
+
+    console.log("##############################################################################################");
+    console.log(video_config_media);
+    console.log("##############################################################################################");
+
+
     // Inicia o player
     let playerInstance = jwplayer("player_div")
     playerInstance.setup({
